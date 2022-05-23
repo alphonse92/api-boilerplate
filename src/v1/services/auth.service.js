@@ -1,6 +1,8 @@
-export function login({email, password}) {
-  const {email, password} = req.body;
+import Forbidden from './../errors/Forbidden';
+
+export async function login({email, password}) {
   if (!email || !password) {
     throw new Forbidden();
   }
+  return {email, password};
 }
